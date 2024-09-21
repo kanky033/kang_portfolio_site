@@ -7,28 +7,28 @@ export const Banner = () => {
 	const [loopNum, setLoopNum] = useState(0)
 	const [isDeleting, setIsDeleting] = useState(false)
 	const [text, setText] = useState("")
-	const period = 500
 	const [delta, setDelta] = useState(100 - Math.random() * 100)
-	const rotatingText = ["Web Developer", "Painter", "Tallboy"]
+	const rotatingText = ["Web Developer", "Software Dev", "Painter"]
+	const typingSpeed = 200
+	const deletingSpeed = 80
 
 	const tick = () => {
-		let i = loopNum % rotatingText.length
-		let fullText = rotatingText[i]
-		let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1)
-		setText(updatedText)
-
-		if(isDeleting) {
-			setDelta(prevDelta => prevDelta / 2)
-		}
-
-		if(!isDeleting && updatedText === fullText){
-			setIsDeleting(true)
-			setDelta(period)
-		}
-		else if(isDeleting && updatedText === "") {
-			setIsDeleting(false)
-			setLoopNum(loopNum + 1)
-			setDelta(500)
+		let i = loopNum % rotatingText.length;
+		let fullText = rotatingText[i];
+		let updatedText = isDeleting 
+			? fullText.substring(0, text.length - 1) 
+			: fullText.substring(0, text.length + 1);
+		
+		setText(updatedText);
+		
+		// Set delta based on typing or deleting
+		setDelta(isDeleting ? deletingSpeed : typingSpeed);
+		
+		if (!isDeleting && updatedText === fullText) {
+			setIsDeleting(true);
+		} else if (isDeleting && updatedText === "") {
+			setIsDeleting(false);
+			setLoopNum(loopNum + 1);
 		}
 	}
 
