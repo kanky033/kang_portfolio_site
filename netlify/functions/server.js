@@ -22,12 +22,12 @@ exports.handler = async (event) => {
     await transporter.sendMail(mailOptions);
     return {
       statusCode: 200,
-      body: JSON.stringify({ status: "Message Sent" }),
+      body: JSON.stringify({ status: "Message Sent", code: 200 }),
     };
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ status: "Error", message: error}),
+      body: JSON.stringify({ status: "Error", message: error, code: 500}),
     };
   }
 };
