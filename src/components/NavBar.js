@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import logoWhite from '../assets/images/logo_white.svg';
 import linkedinLogo from '../assets/images/linkedin_logo.svg';
 import instagramLogo from '../assets/images/instagram_logo.svg';
+import githubLogo from '../assets/images/github_logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import resume from '../assets/downloadables/Kang_IT_Resume_V3.pdf';
 import DownloadButton from './DownloadButton'
@@ -50,6 +51,7 @@ export const NavBar = () => {
 						<div className="social-icon">
 							<a href="https://www.linkedin.com/in/ker-soon-kang-15935513b/"><img src={linkedinLogo} alt="linkedin"/></a>
 							<a href="https://www.instagram.com/peepoglazes/"><img src={instagramLogo} alt="instagram"/></a>
+							<a href="https://github.com/kanky033/kang_portfolio_site"><img src={githubLogo} alt="instagram"/></a>
 						</div>
 						<DownloadButton resume={resume} />
 					</span>
