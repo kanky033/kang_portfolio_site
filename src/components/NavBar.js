@@ -5,7 +5,7 @@ import linkedinLogo from '../assets/images/linkedin_logo.svg';
 import instagramLogo from '../assets/images/instagram_logo.svg';
 import githubLogo from '../assets/images/github_logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import resume from '../assets/downloadables/Kang_IT_Resume_Web.pdf';
+import resume from '../assets/downloadables/Kang_Resume.pdf';
 import DownloadButton from './DownloadButton'
 
 
