@@ -8,7 +8,7 @@ export const Banner = () => {
 	const [isDeleting, setIsDeleting] = useState(false)
 	const [text, setText] = useState("")
 	const [delta, setDelta] = useState(100 - Math.random() * 100)
-	const rotatingText = ["Web Developer", "Software Dev", "Painter"]
+	const rotatingText = ["Web Developer", "Software Dev", "Painter", "Teacher"]
 	const typingSpeed = 200
 	const deletingSpeed = 80
 
@@ -62,7 +62,7 @@ export const Banner = () => {
 							{"I'm a "}
 							<span className="wrap">{text}</span>
 						</h1>
-						<p>Hey guys! I'm Kang and I've been a full stack developer for the last 4 years now. I'm also an avid painter during my spare time and one of the founders of Adelaide's Painters Guild. While I'm not at work you'll find me painting away or teaching classes! Here's just a few of the things I'd love to display! </p>
+						<p>Hey guys! I'm Kang and I've been a full stack developer for the last 4 years now. I'm also an avid painter during my spare time and one of the founders of Adelaide's Painters Guild. While I'm not at work you'll find me painting away or teaching classes to further push the standards of display painting in Adelaide! Here's just a few of the things I'd love to display! </p>
 					</Col>
 					<Col xs={12} md={6} xl={5}>
 						<div className="image-cropper">
