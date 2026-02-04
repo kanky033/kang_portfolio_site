@@ -1,4 +1,6 @@
-import { Container, Row, Col, Nav, Tab} from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { PaintingCards } from "./PaintingCards";
 import LoversEmbrace from '../assets/images/paintings/lovers_embrace.png';
 import Cannoness from '../assets/images/paintings/cannoness.png';
@@ -9,6 +11,25 @@ import Dorf from '../assets/images/paintings/dorf.png';
 import colorSharpRight from '../assets/images/backgrounds/color-sharp2.png';
 
 export const Painting = () => {
+
+	const responsive = {
+		superLargeDesktop: {
+			breakpoint: { max: 4000, min: 3000 },
+			items: 5
+		},
+		desktop: {
+			breakpoint: { max: 3000, min: 1024 },
+			items: 3
+		},
+		tablet: {
+			breakpoint: { max: 1024, min: 464 },
+			items: 2
+		},
+		mobile: {
+			breakpoint: { max: 464, min: 0 },
+			items: 1
+		}
+	};
 	const paintJobs = [
 		{
 			title: "Lover's Embrace",
@@ -44,48 +65,18 @@ export const Painting = () => {
 	return(
 		<section className="painting" id="paintings">
 			<Container>
-				<Row>
-					<Col>
-						<h2>Paint Jobs</h2>
-						<p>Here are some of my paint works. I've been painting for the past 6-7 years now with the dream of becoming a great display painter. Enjoy!</p>
-						<Tab.Container id="painting-tabs" defaultActiveKey="first">
-							<Nav className={"nav-pills mb-5 justify-content-center align-items-center"} id={"pills-tab"} variant="pills">
-								<Nav.Item>
-									<Nav.Link eventKey="first">Gallery Unus</Nav.Link>
-								</Nav.Item>
-								<Nav.Item>
-									<Nav.Link eventKey="second">Gallery Duo</Nav.Link>
-								</Nav.Item>
-							</Nav>
-							<Tab.Content>
-								<Tab.Pane eventKey="first">
-									<Row>
-										{
-											paintJobs.slice(0,3).map((paintJob, index) => {
-												return(
-													<PaintingCards key={index} {...paintJob}/>
-												)
-											}
-											)
-										}
-									</Row>
-								</Tab.Pane>
-								<Tab.Pane eventKey="second">
-									<Row>
-											{
-												paintJobs.slice(3,6).map((paintJob, index) => {
-													return(
-														<PaintingCards key={index} {...paintJob}/>
-													)
-												}
-												)
-											}
-										</Row>
-								</Tab.Pane>
-							</Tab.Content>
-						</Tab.Container>	
-					</Col>
-				</Row>
+				<div>
+					<h2>Paint Jobs</h2>
+					<p>Here are some of my paint works. I've been painting for the past 6-7 years now with the dream of becoming a great display painter. Enjoy!</p>
+					<div className="flex">
+						<Carousel autoPlay={true} autoPlaySpeed={2000} responsive={responsive} infinite={true}>
+							{paintJobs.map((paintJob, index)=>{
+								return <PaintingCards key={index} {...paintJob}/>
+							})}
+						</Carousel>
+					</div>
+				</div>
+				
 			</Container>
 			<img className="background-image-right" src={colorSharpRight}/>
 		</section>
