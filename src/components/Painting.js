@@ -126,7 +126,7 @@ export const Painting = () => {
     <section className="painting" id="paintings">
       <Container>
         <div>
-          <h2>Paint Jobs</h2>
+          <h2>Gallery</h2>
           <p>
             Here are some of my paint works. I've been painting for the past 6-7 years now with the dream of becoming a great display painter. Enjoy!
           </p>
